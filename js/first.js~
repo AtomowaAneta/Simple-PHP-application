@@ -1,8 +1,0 @@
-function showTrueJP(){
-alert("JOOTPE you are logged in ! ");
-}
-
-
-function showContentOfFile(){
-
-}
