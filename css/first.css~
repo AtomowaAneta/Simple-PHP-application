@@ -1,5 +1,0 @@
-div.fields{
-	position: relative;
-}
-div.buttons{
-	position: absolute;
