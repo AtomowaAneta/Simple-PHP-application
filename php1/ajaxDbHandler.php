@@ -3,7 +3,7 @@
 	
 	$servername = "localhost";
 	$username = "root";
-	$password = "ykmd6y2y";
+	$password = "pwd";
 	$dbname = "ajax_db";
 
 	// Create connection
