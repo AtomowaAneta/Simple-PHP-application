@@ -9,6 +9,7 @@
    <!-- Latest compiled and minified JavaScript -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
+
 <body>
    <div class="container-fluid">
       <div class="text-center">
@@ -18,7 +19,7 @@
          <div class="col-md-4">
          </div>
          <div class = "col-md-4" >
-            <form class = "form-group" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"method="POST">
+            <form class = "form-group"  method="POST" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                <p for = "login" style="text-align:center">UserName</p>
                <input type = "login" class = "form-control" id = "login" name="login" placeholder = "Enter user name" >
                </br>

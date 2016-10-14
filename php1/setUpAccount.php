@@ -12,12 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail_addr  = $_POST["mail_addr"];
             
             $newUser = new Database_handler($first_name, $surname, $pwd, $nick, $age, $mail_addr);
-            print_r($newUser->create_user());
+            $newUser->create_user();
             
             
             if ($newUser != NULL) {
                 
-                header('Location: http://10.30.0.170/php_proj/php1/accountCreatedSuccesfuly.php');
+                header('Location: /php_proj/php1/accountCreatedSuccesfuly.php');
             } else {
                 echo "<h>prbleme</h>";
             }
