@@ -1,5 +1,6 @@
 <html>
 	<head>
+<<<<<<< HEAD
 			<meta charset="UTF-8">
 			<title>Pentest App Main</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +12,10 @@
 		</head>
 			<body>		
 				<div class="container">				
+=======
+		</head>
+			<body>						
+>>>>>>> 52a98e508a23f329332930ad7b5134e928e07fbf
 				<h3>Welcome in online database management!</h3>	
 					<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 						<div class = "field">	
@@ -30,7 +35,10 @@
 						<button type="submit">Log into database</button>
 						</div>
 					</form>
+<<<<<<< HEAD
 					</div>
+=======
+>>>>>>> 52a98e508a23f329332930ad7b5134e928e07fbf
 <?php
 
 		session_start();
@@ -49,7 +57,11 @@
 				//$host = htmlspecialchars($_POST["host"]);
 				//$user = htmlspecialchars($_POST["user"]);
 				//$pwd = htmlspecialchars($_POST["pwd"]);
+<<<<<<< HEAD
 				header('Location: http://10.30.0.163/php_proj/php1/dbHandler.php');	
+=======
+				header('Location: http://localhost/php/php1/dbHandler.php');	
+>>>>>>> 52a98e508a23f329332930ad7b5134e928e07fbf
 		}
 }			
 ?>
