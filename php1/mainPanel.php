@@ -1,5 +1,5 @@
 <html>
-<<<<<<< HEAD
+
    <head>
       <meta charset="UTF-8">
       <title>Pentest App Main</title>
@@ -52,7 +52,7 @@
 			$date = getdate();
 			 
 			$login = $_SESSION["login"];
-			//session_destroy();
+			$nick = Database_handler::display_user("$login");
 			?> 
     <div class="container-fluid">
 		<div class="row">
@@ -68,7 +68,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li id="flip"><a href="#" ><span class="glyphicon glyphicon-user"></span> <?php echo $login ?></a></li>
-      <li><a href="#" ><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li ><a href="logOut.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     
     </ul>
   
@@ -80,6 +80,9 @@
 			<div class="col-md-1" id="photo_div">
 				<div id="photo">Add avatar</div>
 				</div>
+				<div class="someInfo col-md-2">
+					<h1>Welcome <?php echo $nick  ?></h1>
+					</div>
 			<div class="col-md-1 col-md-offset-7">
 			  <div class="pull-right" id="panel">
 			  <div class="row">
@@ -93,62 +96,4 @@
 		
    </body>
 </html>
-=======
-<head>
 
-</head>
-<body>
-<?php
-	ini_set('session.cookie_httponly',1);
-	
-	(isset($_SESSION['counter'])) ? $_SESSION['counter'] +=1 : 	$_SESSION['counter'] =1;
-		
-		if(!empty($_POST["login"]) && !empty($_POST["password"]))  {
-			$login = htmlspecialchars($_POST["login"]);
-			$pwd = htmlspecialchars($_POST["password"]);
-	 
-		  if (preg_match("/[^A-Za-z'-]/",$login )) {
-				die ("invalid name and name should be alpha");
-		  }
-
-	echo "Welcome ". $login . "<br />";
-	echo "Your password is ". $pwd . "<br />";
-
-	setcookie($login, "milion", time()+3600, "/","", 0, TRUE);
-	
-	if(isset($_COOKIE["name"]))
-		echo "Welcome ". $_COOKIE["name"];
-	else
-		echo("Problejme :< :< :< ". "<br />");
-
-	echo "<h4>You visited this webpage: " . $_SESSION['counter']. "</h4>";
-	
-	}
-   
-   else
-   
-	die("<h>Something wrong with credentials</h>");
-?>
-	
-<?php 
-	$date = getdate();
-	echo "<p>Today is <i>$date[weekday]</i> </p>";
-	echo "<p><i>$date[mday] of $date[month] , $date[year]</i></p>";
-	echo "<p>Hour: <i>$date[hours] : $date[minutes] : $date[seconds] </i></p>"
-?> <br/>
-
-<form action="uploadFile.php" method="POST">
-	<br>
-		<input type="file" name="file"></input>
-	<br>
-		<input type="submit" name ="send"></input>
-</form>
-<a href = "http://localhost/php/php1/goToDb.php">Go to db </a>
-<br/>
-<a href = "http://localhost/php/php1/ajaxTest.php">Go to test ajax </a>
-</body>
-</html>
-
-
-
->>>>>>> 52a98e508a23f329332930ad7b5134e928e07fbf

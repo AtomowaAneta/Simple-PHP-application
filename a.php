@@ -83,8 +83,8 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
    	if (!(empty($_POST["login"]) || empty($_POST["password"]))){
    			$login = test_input($_POST["login"]);
-   			$passwd = test_input($_POST["password"]);
-   			$password = md5($passwd);
+   			$password = test_input($_POST["password"]);
+   			//$password = md5($passwd);
 		
    				if (Database_handler::find_user($login,$password)) {
 					
