@@ -12,17 +12,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail_addr  = $_POST["mail_addr"];
             
             $newUser = new Database_handler($first_name, $surname, $pwd, $nick, $age, $mail_addr);
-            print_r($newUser->create_user());
+			$newUser->create_user();
             
-            
+          
             if ($newUser != NULL) {
                 
-                header('Location: http://10.30.0.170/php_proj/php1/accountCreatedSuccesfuly.php');
+                header('Location: /php_proj/php1/accountCreatedSuccesfuly.php');
             } else {
                 echo "<h>prbleme</h>";
             }
             
-        } else {
+             
+        } 
+       
+        else {
             $error_name = "You have inserted forbidden characters";
         }
         
@@ -53,13 +56,16 @@ function test_input($data)
          <!-- Latest compiled and minified CSS -->
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
          <script   src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+		 <link rel="stylesheet" type="text/css" href="/php_proj/css/style1.css">	
          <!-- Latest compiled and minified JavaScript -->
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       </head>
       <div class="container-fluid">
       <div class="row">
          <div class="col-md-12 text-center">
+			  <div id="animated-example" class="animated lightSpeedIn">
             <h1>Set up your account</h1>
+            </div>
          </div>
       </div>
       </br></br>

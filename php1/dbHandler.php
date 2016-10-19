@@ -3,7 +3,7 @@ class Database_handler
 {
     private static $servername = "localhost";
     private static $username = "root";
-    private static $password = "";
+    private static $password = "ykmd6y2y";
     private static $db_name = "app_db";
     private $name;
     private $sname;
@@ -22,23 +22,39 @@ class Database_handler
     }
     function create_user()
     {
-        $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
+       $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
         echo "Connected successfully";
-        $stmt = $conn->prepare("INSERT INTO users (FirstName, LastName, Password, Nick, Age, Mail_addr)
-VALUES (?,?,?,?,?,?)");
-        $stmt->bind_param("ssssis", $this->name, $this->sname, $this->pwd, $this->nick, $this->age, $this->mail_addr);
-        $stmt->execute();
+        
+        $sql    = "INSERT INTO Users (FirstName, LastName, Password, Nick, Age, Mail_addr) VALUES('$this->name','$this->sname','$this->pwd','$this->nick','$this->age','$this->mail_addr')";
+        $result = $conn->query($sql);
     }
+    
+    function create_user_db() 
+    {
+		$conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        echo "Connected successfully";
+			$usrdb = $this->name . $this->nick . "_db";
+			$sql    = "CREATE DATABASE " . $usrdb;
+			$result = $conn->query($sql);
+			create_tables_in_db($usrdb);
+		
+	}
+	
+	
+    
     public static function find_user($name, $pwd)
     {
         $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql    = "SELECT FirstName, Password FROM users WHERE FirstName='$name'and Password='$pwd'";
+        $sql    = "SELECT FirstName, Password FROM Users WHERE FirstName='$name'and Password='$pwd'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             return true;

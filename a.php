@@ -5,14 +5,28 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="css/style1.css">
    <script   src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
    <!-- Latest compiled and minified JavaScript -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+ <script>
+         function myFunction() {
+            location.reload();
+         }
+      </script>
+ <style>
+         
+        
+      </style>
+
 </head>
 <body>
    <div class="container-fluid">
       <div class="text-center">
+		  <div id="animated-example" class="animated lightSpeedIn">
          <h1>I don't know app</h1>
+         </div>
       </div>
       <div class="row">
          <div class="col-md-4">
@@ -64,22 +78,28 @@
 </html>
 <?php 
    require('php1/dbHandler.php');
-    
+
+    session_start();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
    	if (!(empty($_POST["login"]) || empty($_POST["password"]))){
    			$login = test_input($_POST["login"]);
-   			$password = test_input($_POST["password"]);
-   		
+   			$passwd = test_input($_POST["password"]);
+   			$password = md5($passwd);
+		
    				if (Database_handler::find_user($login,$password)) {
+					
+					$_SESSION["login"] = $login;
+				
    					header('Location: /php_proj/php1/mainPanel.php');	
+						
    					}
    					else {
-   						echo "niet";
+   						echo "Nein";
    						}
    				
    	}
    	 else {
-      			$nameError = "You must fulfill all fields!";
+      			echo "You must fulfill all fields!";
       		}
     }
     
