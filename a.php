@@ -21,11 +21,7 @@
  <style>
          
  
-body {
- 
-   background-image: url("img/title-background.jpg");
-     background-size: cover;
-}
+
 
 
       </style>
