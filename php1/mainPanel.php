@@ -1,4 +1,5 @@
 <html>
+
    <head>
       <meta charset="UTF-8">
       <title>Pentest App Main</title>
@@ -9,19 +10,90 @@
       <!-- Latest compiled and minified JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
    </head>
+   <script>
+	  $(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+	   
+	   </script>
+	<style> 
+#panel {
+    background-color:  	#808080;
+    border: stripped 3px #c3c3c3;
+    padding: 100px;
+    padding-left: 50px;
+    display: none;
+	width: 5px;
+}
+
+#photo {
+
+	border: solid 3px #c3c3c3;
+	width: 80px;
+	height : 80px;
+	border-radius: 10px;
+	text-align: center;	
+}
+#photo_div {
+	padding-left: 40px;
+}
+
+
+
+
+</style>
    <body>
 				 <?php
+		    require('dbHandler.php');
 			ini_set('session.cookie_httponly', 1);
+			session_start();
 			$date = getdate();
-			echo "<p>Today is <i>$date[weekday]</i> </p>";
-			echo "<p><i>$date[mday] of $date[month] , $date[year]</i></p>";
-			echo "<p>Hour: <i>$date[hours] : $date[minutes] : $date[seconds] </i></p>";
+			 
+			$login = $_SESSION["login"];
+			$nick = Database_handler::display_user("$login");
 			?> 
-         <br/>
-      <form action="/php_proj/php1/goToDb.php" method="POST">
-         <button>Go to db</button>
-      </form>
-      <br/>
-      <form action="/php1/ajaxTest.php"></form>
+    <div class="container-fluid">
+		<div class="row">
+			 <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li id="flip"><a href="#" ><span class="glyphicon glyphicon-user"></span> <?php echo $login ?></a></li>
+      <li ><a href="logOut.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    
+    </ul>
+  
+  </div>
+
+</nav>
+  
+		<div class="row">
+			<div class="col-md-1" id="photo_div">
+				<div id="photo">Add avatar</div>
+				</div>
+				<div class="someInfo col-md-2">
+					<h1>Welcome <?php echo $nick  ?></h1>
+					</div>
+			<div class="col-md-1 col-md-offset-7">
+			  <div class="pull-right" id="panel">
+			  <div class="row">
+			  <div class="col-md-2 col-md-offset-3">Witam</div>
+			  <div class="col-md-2">Nara</div>
+			  </div></div>
+			</div>
+
+		</div>
+		
+		
    </body>
 </html>
+
