@@ -1,11 +1,15 @@
 body {
- color:white;
-   background-image: url("img/title-background.jpg");
+
+   background-image: url("/php_proj/img/title-background.jpg");
+	font-family: 'Fjalla One', sans-serif;
      background-size: cover;
-     	color: white;
+     color:white;
+     
 	
 }
-
-.title {
-		font-family: 'Fjalla One', sans-serif;
+input {
+	color: white;
+	background-color: #787878 ;
+	border-radius: 100px;
 }
+

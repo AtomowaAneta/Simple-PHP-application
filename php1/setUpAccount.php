@@ -47,6 +47,7 @@ function test_input($data)
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
+    
     return true;
 }
 ?> 
@@ -55,7 +56,7 @@ function test_input($data)
       <head>
          <meta charset="UTF-8">
          <title>Set up account</title>
-         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
          <!-- Latest compiled and minified CSS -->
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
          <script   src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -66,14 +67,8 @@ function test_input($data)
           <link rel="stylesheet" type="text/css" href="/php_proj/css/account.css">
       </head>
                <style>
-body {
-  background-image: url("/php_proj/img/title-background.jpg");
-     background-size: cover;
 
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
+              
       </style>
   
  
@@ -82,7 +77,7 @@ body {
       <div class="row">
          <div class="col-md-12 text-center">
 			  <div id="animated-example" class="animated lightSpeedIn">
-            <h1>Set up your account</h1>
+            <h1 id="title">Set up your account</h1>
             </div>
          </div>
       </div>
@@ -91,27 +86,27 @@ body {
       <div class="col-md-4">
       </div>
       <div class="col-md-2">
-         <h2>To create new account please fulfill all following fields.</h2>
+         <h2 id="info">To create new account please fulfill all following fields.</h2>
          <div class="row">
             <div class="col-md-8">
                <p id="error_msg"><?php echo ((isset($error_name) && $error_name != '') ? $error_name : ''); ?></p>
             </div>
          </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 forms">
          <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <div class="row">
                <div class="col-md-1"> Name 
                </div>
-               <div class="col-md-1">
+               <div class="col-md-1" >
                   <input type="text" id="first_name" name="first_name"> <br/>
                </div>
             </div>
-            <div class="row">
+            <div class="row" >
                <div class="col-md-1"> Surname
                </div>
                <div class="col-md-1">
-                  <input type="text" id="surname" name="surname"> <br/>
+                  <input type="text" id="surname" name="surname" style="padding-left: 15px;"> <br/>
                </div>
             </div>
             <div class="row">
