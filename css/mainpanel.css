@@ -59,25 +59,45 @@ footer {
 }
 
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
-.wrapper {
-  min-height: 100%;
 
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: -50px;
-}
-.footer,
 .push {
-  height: 80px;
+  height: 450px;
 }
-footer {
+.footer {
   background: #1e1e1e;
   color: white;
-  line-height: 50px;
-  padding: 0 20px;
-  border-radius: 20px 20px 0 0;
+  height: 20px;  
+}
+
+#time {
+	font-family : 'Shrikhand', cursive ;
+
+}
+
+.main_wrapper {
+	height: 100%;
+	width: 100%;
+}
+.left_main{
+height: 100%;
+}
+
+.post_bg {
+	margin: 0 auto;
+	background-color: #7e7e7e;
+	height: 100%;
+	border-radius: 10px;
+}
+
+.right_main{
+height: 100%;
+}
+
+.calendar_bg ,.todo_bg, .news_bg {
+	border-radius: 10px;
+	margin: 0 auto;
+	background-color: #7e7e7e;
+	width: 90%;
+	height: 300px;
+
 }

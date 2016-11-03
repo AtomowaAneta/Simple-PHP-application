@@ -22,6 +22,9 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       <link rel="stylesheet" type="text/css" href="/php_proj/css/mainpanel.css">
       <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Fjalla+One" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+      <script src="/php_proj/js/hourApp.js"></script>
    </head>
 
 
@@ -49,9 +52,45 @@
 		</a>
 	</div>
 
-	<div class="row"> 
-	<div class="col-md-2 photo"></div>
+	<div class="row main_wrapper"> 
+	<div class="col-md-3 left_main">
+	<div class="row">
+		<div class="photo"></div>
 	</div>
+
+</br> </br> 
+	<div class="row">
+
+		<div class="calendar_bg">
+		Tu calendar
+		</div>
+	</div>
+	</div>
+	
+	<div class="col-md-6 post_bg"> Tu posty bedo </div>
+	
+	<div class="col-md-3 right_main"  >
+		<div ng-app="myApp" ng-controller="myCtrl" id="time" style="text-align: right;">
+
+	<p>{{theTime}}</p>
+</div>
+			<div class="row">
+
+		<div class="todo_bg">
+		Tu zadania do zrobienia
+		</div>
+	</div>	
+</br> 
+		<div class="row">
+
+		<div class="news_bg">
+		Tu news
+		</div>
+	</div>
+
+		</div>
+	</div>
+
 	</div>
 
    </body>
