@@ -33,6 +33,7 @@
 </style>
    <body>
 
+
 	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -56,14 +57,12 @@
   </div>
 </nav>
 
+
 	<div class="row main_wrapper"> 
 	<div class="col-md-3 left_main">
 	<div class="row">
 		<div class="photo"></div>
 	</div>
-
-
-
 
 
 </br> </br> 
@@ -75,9 +74,11 @@
 	</div>
 	</div>
 
+
 	
 	<div class="col-md-6 post_bg"> Tu posty bedo </div>
 	
+
 
 	<div class="col-md-3 right_main"  >
 		<div ng-app="myApp" ng-controller="myCtrl" id="time" style="text-align: right;">
@@ -98,6 +99,7 @@
 		</div>
 	</div>
 
+
 	
 	
 
@@ -109,6 +111,7 @@
 
 
 		</div>
+
 
 	</div>
 
