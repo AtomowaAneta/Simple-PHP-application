@@ -65,20 +65,33 @@
             </div>
          </div>
          <div class="col-md-6 post_bg"> Tu posty bedo </div>
-         <div class="col-md-3 right_main" >
+         <div class="col-md-3 right_main"  style="color:black;">
             <div class="row">
                <div class="todo_bg">
-   			<div id="toDo"  ng-controller="toDoAppController" >
-   				<div class="toDo_title" style="text-align: center;"><i>{{title}}</i></div>
+   			<div  ng-controller="toDoAppController">
+   			<div class="panel-group">
+   				<div class="panel panel-default">
+   				<div class="panel-heading toDo_title" style="text-align: center; color:">{{toDotitle}}</div>
+				  
+				    <div style="text-align:center;" id="panel_body" class="panel-body " ng-repeat="x in tasks">{{x}}</div>
+				    <span class="" ng-click="deleteTask()"></span></li>
+				<div class="panel-footer">  
+				  <input  ng-model="addGiven">
+				  <button class="btn btn-success" ng-click="addTask()">Add</button>
+				</div>
+				</div>
+				</div>
+   				</div>
    			</div>
                </div>
-            </div>
-            </br> 
+                </br> 
             <div class="row">
                <div class="news_bg">
                   Tu news
                </div>
             </div>
+            </div>
+           
          </div>
       </div>
       </div>

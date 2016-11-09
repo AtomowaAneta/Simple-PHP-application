@@ -8,7 +8,15 @@ myApp.controller('myCtrl', function($scope, $interval) {
 });
 
 myApp.controller('toDoAppController', function($scope) {
-	$scope.title = "What to do?";
+	$scope.toDotitle = "What to do?";
+	$scope.tasks = ["Cut the grass", "fuck your wife", "awd", "a" ,"sefesf"];
+		$scope.addTask = function (){
+			$scope.tasks.push($scope.addGiven);
+		};
+		$scope.deleteTask = function (task){
+			$scope.tasks.splice(task,1);
+		}
 });
+
 
 
