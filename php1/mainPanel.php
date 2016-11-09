@@ -10,7 +10,6 @@
 			?> 
 
 <html>
-
    <head>
       <meta charset="UTF-8">
       <title>Pentest App Main</title>
@@ -25,98 +24,71 @@
       <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
       <script src="/php_proj/js/hourApp.js"></script>
+     
    </head>
-
-
-	<style> 
-
-</style>
-   <body>
-
-
-	<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-    
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="navbutton"><a href="mainPanel.php">I don't know app</a> </li>
-      
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="navbutton"><a href="#"><?php echo $nick?> <span class="glyphicon glyphicon-user"></span></a></li>
-        <li class="navbutton"><a href="logOut.php"> Log Out <span class="glyphicon glyphicon-log-out"></span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-	<div class="row main_wrapper"> 
-	<div class="col-md-3 left_main">
-	<div class="row">
-		<div class="photo"></div>
-	</div>
-
-
-</br> </br> 
-	<div class="row">
-
-		<div class="calendar_bg">
-		Tu calendar
-		</div>
-	</div>
-	</div>
-
-
-	
-	<div class="col-md-6 post_bg"> Tu posty bedo </div>
-	
-
-
-	<div class="col-md-3 right_main"  >
-		<div ng-app="myApp" ng-controller="myCtrl" id="time" style="text-align: right;">
-
-	<p>{{theTime}}</p>
-</div>
-			<div class="row">
-
-		<div class="todo_bg">
-		Tu zadania do zrobienia
-		</div>
-	</div>	
-</br> 
-		<div class="row">
-
-		<div class="news_bg">
-		Tu news
-		</div>
-	</div>
-
-
-	
-	
-
-		</div>
-		
-	
-	
-	</div>
-
-
-		</div>
-
-
-	</div>
-
-	</div>
-
+   <style> 
+   .main_wrapper {
+   	padding-top: 80px;
+   }
+   </style>
+   <body ng-app="myApp">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav navbar-nav">
+                  <li class="navbutton"><a href="mainPanel.php">I don't know app</a> </li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <li class="navbutton"><a href="#"><?php echo $nick?> <span class="glyphicon glyphicon-user"></span></a></li>
+                  <li class="navbutton"><a href="logOut.php"> Log Out <span class="glyphicon glyphicon-log-out"></span></a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <div class="row main_wrapper">
+         <div class="col-md-3 left_main">
+            <div class="row">
+               <div class="photo"></div>
+            </div>
+            </br> </br> 
+            <div class="row">
+               <div class="calendar_bg">
+                  Tu calendar
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6 post_bg"> Tu posty bedo </div>
+         <div class="col-md-3 right_main" >
+            <div class="row">
+               <div class="todo_bg">
+   			<div id="toDo"  ng-controller="toDoAppController" >
+   				<div class="toDo_title" style="text-align: center;"><i>{{title}}</i></div>
+   			</div>
+               </div>
+            </div>
+            </br> 
+            <div class="row">
+               <div class="news_bg">
+                  Tu news
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <footer class="footer navbar-fixed-bottom"> 
+      <div id="time"  ng-controller="myCtrl"  style="text-align: right;">
+               <p>{{theTime}}</p>
+            </div>
+       </footer>
    </body>
 </html>
 

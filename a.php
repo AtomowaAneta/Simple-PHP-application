@@ -147,9 +147,9 @@
 
 </div>
  </div>
- <div class="push"></div>
+
   
-<footer class="footer">Footer!</footer>
+<footer class="footer navbar-fixed-bottom">Footer!</footer>
 
 
 </body>

@@ -63,21 +63,7 @@
 	background-color: red;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
-.wrapper {
-  min-height: 100%;
 
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: -50px;
-}
-.footer,
-.push {
-  height: 80px;
-}
 footer {
   background: #1e1e1e;
   color: white;
