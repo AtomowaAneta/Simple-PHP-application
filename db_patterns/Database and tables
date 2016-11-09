@@ -1,0 +1,43 @@
+CREATE DATABASE app_db;
+
+USE app_db;
+
+
+
+CREATE TABLE Users
+(
+PersonID int NOT NULL AUTO_INCREMENT,
+FirstName varchar(255) NOT NULL,
+LastName varchar(255),
+Password varchar(255),
+Nick varchar(255),
+Age int(20),
+Mail_addr varchar(255),
+PRIMARY KEY (PersonID)
+);
+
+				
+
+CREATE TABLE Posts
+(
+P_ID int NOT NULL AUTO_INCREMENT,
+PersonID int,
+Date varchar(255),
+Hour varchar(255),
+Content varchar(255),
+PRIMARY KEY (P_ID),
+FOREIGN KEY (PersonID) REFERENCES Users(PersonID)
+);
+
+
+CREATE TABLE Uploads
+(
+U_ID int NOT NULL AUTO_INCREMENT,
+PersonID int,
+Date varchar(255),
+Hour varchar(255),
+Content varchar(255),
+PRIMARY KEY (U_ID),
+FOREIGN KEY (PersonID) REFERENCES Users(PersonID)
+);
+
