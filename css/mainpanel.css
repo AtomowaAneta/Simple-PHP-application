@@ -52,20 +52,33 @@ footer {
 	background-color: red;
 }
 
-.photo {
-	background-color: white;
-	border-radius:100px;
-	width: 100px;
-	height: 100px;
-	margin-left:  20px; 
+.location_head {
+	text-align:center;
+	font-family : 'Shrikhand', cursive;
+	background-color: gray;
+	
 }
 
 
+.location_info {
+	margin: 0 auto;
+	background-color: #7e7e7e;
+	height: 150px;
+	width: 80%;
+	border-radius: 10px;
+	color: black;
+	font-family: 'Bungee Inline', cursive ;
+
+
+}
 
 
 
 #time {
 	font-family : 'Shrikhand', cursive ;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 10px;
 
 }
 
@@ -97,6 +110,9 @@ footer {
 	resize: both;
 	overflow: auto;
 
+}
+.calendar_bg {
+	height: 200px;
 }
 
 .toDo_title {
