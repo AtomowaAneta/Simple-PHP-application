@@ -60,16 +60,18 @@ footer {
 }
 
 
-.location_info {
+.app_wrapper {
 	margin: 0 auto;
 	background-color: #7e7e7e;
-	height: 150px;
+	height: 300px;
 	width: 80%;
 	border-radius: 10px;
 	color: black;
 	font-family: 'Bungee Inline', cursive ;
+}
 
-
+.hover_on_app_wrapper {
+	background-color: white;
 }
 
 
