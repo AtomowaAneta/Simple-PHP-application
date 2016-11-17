@@ -70,7 +70,7 @@
          <div class="col-md-3 left_main">
             <div class="row">
                <div class="app_wrapper droppable"  id="resizable">
-                  <div class="well draggable" style="height: 99%; width: 99%;">
+                  <div class="well draggable" style="height: 100%; width: 100%;">
                      <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
@@ -95,7 +95,7 @@
               
 
                <div class="app_wrapper droppable" id="resizable" >
-                  <div class="well   draggable"  >
+                  <div class="well   draggable" style="height: 100%; width: 100%;" >
                    <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
@@ -103,16 +103,17 @@
                      </div>
                      <div class="month" ng-controller="monthDisplayer">
                     <div class="app_title" style="text-align:center;" >{{calName}}</div>
-                        </br>
+                
                         <div class="datenyear" style="text-align:center;">
-                      <span>{{actualDayN}}</span>  <span>{{actualMonth}}</span>   <span >{{actualDay}}</span>
+                      <span>{{actualDayN}}</span>  <span>{{actualMonth}}</span>   <span >{{actualYear}}</span>
                         </div>
                         <div class="day" style="text-align:center;"> 
-                       <span>{{actualYear}}</span>
+                       <span>{{actualDay}}</span>
                         </div>
-
-                        </div> 
+                      </div>
+                    <div class="daymap"></div>
                   </div>
+
                </div>
             </div>
                 </br> 
@@ -217,19 +218,38 @@
             </div>
          </div>
       </footer>
+    
        <script>
 		
- 
 
-			
 
+$(document).ready(function() {
+          $(".well").dblclick( function() {
+              $(this).animate({
+                    backgroundColor: 'gray',
+                    height: '500px',
+                    width: '500px',
+                    zIndex: '100',
+                    marginTop: '0px',
+                    position: 'absolute',
+                    top:'0',
+                    right:'0',
+              });
+          }); 
+           $(".well").click( function() {
+              $(this).animate({
+                  height: "100%", 
+                  width: "100%",
+                  backgroundColor: "white",
+                  zIndex: '1',
+              });
+          }); 
+       });
   
+			
      
       
-     $(function() {
-            $( "#resizable" ).resizable();
-         });
-
+    
 
 </script>
    </body>
