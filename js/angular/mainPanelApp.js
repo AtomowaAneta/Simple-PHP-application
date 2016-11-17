@@ -27,15 +27,24 @@ myApp.controller('toDoAppController', function($scope) {
 });
 
 
-myApp.controller('monthDisplayer' ,function($scope) {
-	$scope.actualMonth = '';
-	$scope.months = [ 'January', 'February', 'March', 'April', 'May', 'June',
+myApp.controller('monthDisplayer' ,function($scope, $window) {
+	$scope.calName = "Calendar";
+  $scope.actualYear = '';
+  $scope.actualMonth = '';
+  $scope.actualDay = '';
+  $scope.actualDayN = '';
+	$scope.weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday' , 'Friday' , 'Saturday'];
+  $scope.months = [ 'January', 'February', 'March', 'April', 'May', 'June',
             'July', 'August', 'September', 'October', 'November', 'December' ];
-    $scope.printMonth = function () {
+    $window.onload = function () {
     	 var monthNumber = new Date().getMonth();
-    	$scope.actualMonth = months[monthNumber];
+       var dayNumber = new Date().getDay();
+       var yearNumber = new Date().getFullYear();
+      $scope.actualYear = yearNumber;
+    	$scope.actualMonth = $scope.months[monthNumber];
+      $scope.actualDayN = dayNumber;
+      $scope.actualDay = $scope.weekDays[dayNumber];
     }
-
 });
 
 

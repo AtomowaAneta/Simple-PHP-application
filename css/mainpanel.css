@@ -34,25 +34,18 @@ footer {
 
 .navbar {
 	background-color: #1e1e1e;
-	
 }
 
 .navbutton {
-
-
-
 	font-family: 'Bungee Inline', cursive;
-	
 	text-decoration: none;
-	
-
 }
 
 .navbutton:hover {
 	background-color: red;
 }
 
-.location_head {
+.app_title {
 	text-align:center;
 	font-family : 'Shrikhand', cursive;
 	background-color: gray;
@@ -103,19 +96,8 @@ footer {
 	height: 100%;
 }
 
-.calendar_bg ,.todo_bg, .news_bg {
 
-	margin: 0 auto;
-	background-color: #7e7e7e;
-	width: 80%;
-	height: 400px;
-	resize: both;
-	overflow: auto;
 
-}
-.calendar_bg {
-	height: 200px;
-}
 
 .toDo_title {
 	font-family : 'Shrikhand', cursive ;	
@@ -132,4 +114,9 @@ input {
 
 #panel_body:hover {
 	background-color: red;
+}
+
+.app_bar {
+	text-decoration: none;
+	text-align:right;
 }
