@@ -1,5 +1,11 @@
 var myApp = angular.module('myApp', []);
 
+myApp.filter('htmlPlain', function() {
+  return function(text) {
+    return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
+  };
+});
+
 myApp.controller('myCtrl', function($scope, $interval) {
   $scope.theTime = new Date().toLocaleTimeString();
   $interval(function () {
@@ -8,7 +14,7 @@ myApp.controller('myCtrl', function($scope, $interval) {
 });
 
 myApp.controller('toDoAppController', function($scope) {
-	$scope.toDotitle = "What to do?";
+	$scope.toDotitle = "Task Planner";
 	$scope.tasks = ["Cut the grass", "fuck your wife",];
 		$scope.addTask = function (){
 			$scope.error = "";
@@ -37,14 +43,31 @@ myApp.controller('monthDisplayer' ,function($scope, $window) {
   $scope.months = [ 'January', 'February', 'March', 'April', 'May', 'June',
             'July', 'August', 'September', 'October', 'November', 'December' ];
     $window.onload = function () {
+
     	 var monthNumber = new Date().getMonth();
        var dayNumber = new Date().getDay();
+       var dayNumberN = new Date().getUTCDate();
        var yearNumber = new Date().getFullYear();
+      $scope.weekDaysSh = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu' , 'Fri' , 'Sat'];
       $scope.actualYear = yearNumber;
     	$scope.actualMonth = $scope.months[monthNumber];
-      $scope.actualDayN = dayNumber;
+      $scope.actualDayN = dayNumberN;
       $scope.actualDay = $scope.weekDays[dayNumber];
     }
+
 });
+
+
+
+myApp.controller('newsCtrl',['$scope', '$http', function($scope,$http) {
+  $scope.newsTitle = "NEWSer";
+  $http.get("newsParser.php").success(function(response) {
+    
+   alert("jeah!");
+   $scope.news = response;
+  });
+
+
+}]);
 
 

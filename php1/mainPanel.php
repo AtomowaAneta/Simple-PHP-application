@@ -70,40 +70,50 @@
          <div class="col-md-3 left_main">
             <div class="row">
                <div class="app_wrapper droppable"  id="resizable">
-                  <div class="well draggable" style="height: 100%; width: 100%;">
+                 <div class="panel-group">
+                    <div class="panel panel-default draggable" style="height: 100%; width: 100%;">
                      <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-plus-sign"></span></a>
                      </div>
-                     <div class="app_title" >Location info</div>
-                     </br>  
+                     <div class="panel-heading">
+                     <div class="app_title" style="color: white;">Localizer</div>
+                      </div>
+                      <div class="panel-body"> 
                      <div id="ip" ></div>
                      <div id="city_name" ></div>
                      <div id="province_name"></div>
                      <div id="country_name"></div>
                      <div id="coordinates"></div>
                      <div class="but" style="text-align:center; padding-top: 10px; ">
+                     <div class="panel-footer">
                      <div class="btn btn-warning" >See on map</div>
+                     </div>
+                     </div>
                   </div>
                   </div>
-
+                      </div>
                </div>
             </div>
             </br>  
             <div class="row">
               
 
-               <div class="app_wrapper droppable" id="resizable" >
-                  <div class="well   draggable" style="height: 100%; width: 100%;" >
+               <div class="app_wrapper droppable" >
+     
+                    <div class="panel-group">
+                    <div class="panel panel-default draggable" style="height: 100%; width: 100%;">
                    <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-plus-sign"></span></a>
                      </div>
                      <div class="month" ng-controller="monthDisplayer">
-                    <div class="app_title" style="text-align:center;" >{{calName}}</div>
-                
+                   <div class="panel-heading">
+                     <div class="app_title" style="color: white;">{{calName}}</div>
+                      </div>
+                    <div class="panel-body">
                         <div class="datenyear" style="text-align:center;">
                       <span>{{actualDayN}}</span>  <span>{{actualMonth}}</span>   <span >{{actualYear}}</span>
                         </div>
@@ -111,37 +121,50 @@
                        <span>{{actualDay}}</span>
                         </div>
                       </div>
-                    <div class="daymap"></div>
+                    <div class="daymap">
+                      <div class="dayshortcuts" style="text-align:center; width: 100%"> 
+                      <span  ng-repeat="day in weekDaysSh" >  <div class="col-md-1" style="text-align-last: ">  {{day}} </div>     </span> 
+                      </div>
+                    </div>
+                    </div>
                   </div>
-
+                  </div>
                </div>
             </div>
                 </br> 
              <div class="row">
               
 
-               <div class="app_wrapper droppable" id="resizable">
-                  <div class="well  draggable" >
-                    
+               <div class="app_wrapper droppable">
+                
+                  <div class="panel-group">
+                    <div class="panel panel-default draggable" style="height: 100%; width: 100%;">
                       <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-plus-sign"></span></a>
                      </div>
       
-                                   
+                           </div>        
                   </div>
                </div>
             </div>
          </div>
-         <div class="col-md-6 post_bg  " id="resizable" >
-           <div id="resizable" style="width:100px; height:150px; background-color: green;" >
-                    
-                     
-      
-                                   
-                  </div> 
-           <h1 style="color: red;">{{error}}</h1>
+         <div class="col-md-6 post_bg ">
+          
+         <div class="panel-group">
+                    <div class="panel panel-default draggable">
+                      <div class="app_bar">
+                        <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
+                        <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                        <a href="#" style="color: black"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                     </div>
+       <div class="panel-heading">
+                     <div class="app_title" style="color: white;">Poster</div>
+                      </div>
+                           </div>
+
+                  </div>
          </div>
 
         
@@ -159,7 +182,11 @@
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-plus-sign"></span></a>
                      </div>
-                           <div class="panel-heading toDo_title" style="text-align: center; color:" data-toggle="tooltip" title="Plan your tasks">{{toDotitle}}</div>
+
+                     <div class="panel-heading">
+                     <div class="app_title" style="color: white;">{{toDotitle}}</div>
+                      </div>
+                           
                            <div style="text-align:center;" id="panel_body" class="panel-body " ng-repeat="x in tasks">{{x}}
                               <span class="glyphicon glyphicon-remove" ng-click="deleteTask()"> </span>
                            </div>
@@ -174,13 +201,44 @@
             </div>
             </br> 
             <div class="row">
-               <div class="app_wrapper droppable " >
-              </div>
+               <div class="app_wrapper droppable">
+                <div ng-controller="newsCtrl">
+                  <div class="panel-group" >
+                    <div class="panel panel-default draggable" >
+                      <div class="app_bar">
+                        <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
+                        <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                        <a href="#" style="color: black"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                     </div>
+                      <div class="panel-heading" >
+                     <div class="app_title" style="color: white;" >{{newsTitle}}</div>
+                      </div>
+                        <div class="panel_body" style="max-height: 85%;overflow: scroll;">
+                          <ul>
+                          <li>{{news| htmlPlain}}</li>
+                          </ul>
+                        </div>
+                           </div>  
+                          </div>   
+                  </div>
+               </div>
             </div>
             </br>
              <div class="row">
-               <div class="app_wrapper droppable ">
-              </div>
+                <div class="app_wrapper droppable">
+                
+                  <div class="panel-group">
+                    <div class="panel panel-default draggable">
+                      <div class="app_bar">
+                        <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
+                        <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                        <a href="#" style="color: black"><span class="glyphicon glyphicon-plus-sign"></span></a>
+
+                     </div>
+      
+                           </div>        
+                  </div>
+               </div>
             </div>
          </div>
       </div>
@@ -224,9 +282,9 @@
 
 
 $(document).ready(function() {
-          $(".well").dblclick( function() {
+          $(".panel").dblclick( function() {
               $(this).animate({
-                    backgroundColor: 'gray',
+             
                     height: '500px',
                     width: '500px',
                     zIndex: '100',
@@ -234,14 +292,16 @@ $(document).ready(function() {
                     position: 'absolute',
                     top:'0',
                     right:'0',
+                    fontSize:'20px'
               });
           }); 
-           $(".well").click( function() {
+           $(".panel").click( function() {
               $(this).animate({
                   height: "100%", 
                   width: "100%",
                   backgroundColor: "white",
                   zIndex: '1',
+                  fontSize: '14px'
               });
           }); 
        });
