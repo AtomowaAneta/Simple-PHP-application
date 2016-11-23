@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-myApp.filter('htmlPlain', function() {
+myApp.filter('plainHTML', function() {
   return function(text) {
     return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
   };
@@ -57,17 +57,16 @@ myApp.controller('monthDisplayer' ,function($scope, $window) {
 
 });
 
-
-
-myApp.controller('newsCtrl',['$scope', '$http', function($scope,$http) {
+myApp.controller('newsCtrl', function($scope,$http) {
   $scope.newsTitle = "NEWSer";
-  $http.get("newsParser.php").success(function(response) {
-    
-   alert("jeah!");
-   $scope.news = response;
+  $http.get("newsParser.php").then(function(response) {
+    alert("chuj");
+    $scope.news = response.data.newsTitles;
+ 
+ 
   });
 
 
-}]);
+});
 
 

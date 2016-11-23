@@ -1,19 +1,28 @@
 <?php
+
 require 'simple_html_dom.php';
 
-$newsArray = [];
+$newsArrayTitles = array();
+$newsArrayLinks = array('newsTitles' => array());
 $html = file_get_html('http://www.bbc.com/news');
 $title = $html->find('title', 0);
+$elementOfInterest = 'span[class="title-link__title-text"]';
 
 
-echo $title->plaintext."<br>\n";
-echo "</br> </br> </br>";
-foreach($html->find('span.title-link__title-text') as $e){
-	 array_push($newsArray, $e);
-	}
-foreach ($newsArray as $key) {
-	echo $key . "</br>" ;
-}
+
+foreach($html->find($elementOfInterest) as $e){
+	
+	  $newsArrayTitles[] =  array('Title' => $e -> plaintext );
+	
+	 }
+echo json_encode(array('newsTitles' => $newsArrayTitles));
+	
+
+
+
+
+
+
 
 
    

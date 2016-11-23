@@ -47,8 +47,6 @@ class Database_handler
 		
 	}
 	
-	
-    
     public static function find_user($name, $pwd)
     {
         $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);

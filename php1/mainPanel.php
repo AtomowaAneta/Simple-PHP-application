@@ -1,6 +1,7 @@
 
 	 <?php
 		    require('dbHandler.php');
+ 
 			ini_set('session.cookie_httponly', 1);
 			session_start();
 			$date = getdate();
@@ -187,12 +188,16 @@
                      <div class="app_title" style="color: white;">{{toDotitle}}</div>
                       </div>
                            
-                           <div style="text-align:center;" id="panel_body" class="panel-body " ng-repeat="x in tasks">{{x}}
+                           <div style="text-align:center; padding: 0px; margin: 0px; overflow-y : scroll; max-height: 180px;"  class="panel-body " >
+                              
+                            <div class="well" ng-repeat="x in tasks">{{x}}
                               <span class="glyphicon glyphicon-remove" ng-click="deleteTask()"> </span>
-                           </div>
+                            </div>
+                            </div>
+                          
                            <div class="panel-footer">  
                               <input  ng-model="addGiven" id="toDo_input">
-                              <button class="btn btn-success" ng-click="addTask()">Add</button>
+                              <button style="right: 0px;" class="btn btn-success" ng-click="addTask()">Add</button>
                            </div>
                         </div>
                      </div>
@@ -213,10 +218,10 @@
                       <div class="panel-heading" >
                      <div class="app_title" style="color: white;" >{{newsTitle}}</div>
                       </div>
-                        <div class="panel_body" style="max-height: 85%;overflow: scroll;">
-                          <ul>
-                          <li>{{news| htmlPlain}}</li>
-                          </ul>
+                        <div  class="panel_body" style="padding: 0px; margin: 0px; overflow-y : scroll; max-height: 80%;">
+                        <ul ng-repeat="new in news" class="list-group" >
+                          <li class="list-group-item">{{new.Title}} </panel>
+                        </ul>
                         </div>
                            </div>  
                           </div>   
