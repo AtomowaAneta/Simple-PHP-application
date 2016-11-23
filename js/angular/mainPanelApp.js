@@ -1,11 +1,5 @@
 var myApp = angular.module('myApp', []);
 
-myApp.filter('plainHTML', function() {
-  return function(text) {
-    return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
-  };
-});
-
 myApp.controller('myCtrl', function($scope, $interval) {
   $scope.theTime = new Date().toLocaleTimeString();
   $interval(function () {
@@ -65,8 +59,6 @@ myApp.controller('newsCtrl', function($scope,$http) {
  
  
   });
-
-
-});
+  });
 
 

@@ -46,6 +46,7 @@ footer {
 }
 
 .app_title {
+	border-radius: 80px;
 	text-align:center;
 	font-family : 'Shrikhand', cursive;
 	background-color: gray;

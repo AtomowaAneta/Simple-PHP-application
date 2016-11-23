@@ -41,7 +41,7 @@
    </head>
    <style> 
       .main_wrapper {
-      padding-top: 70px;
+      padding-top: 40px;
       }
 
    </style>
@@ -72,7 +72,7 @@
             <div class="row">
                <div class="app_wrapper droppable"  id="resizable">
                  <div class="panel-group">
-                    <div class="panel panel-default draggable" style="height: 100%; width: 100%;">
+                    <div class="panel panell panel-default draggable" style="height: 100%; width: 100%;">
                      <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
@@ -104,7 +104,7 @@
                <div class="app_wrapper droppable" >
      
                     <div class="panel-group">
-                    <div class="panel panel-default draggable" style="height: 100%; width: 100%;">
+                    <div class="panel panell panel-default draggable" style="height: 100%; width: 100%;">
                    <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
@@ -139,7 +139,7 @@
                <div class="app_wrapper droppable">
                 
                   <div class="panel-group">
-                    <div class="panel panel-default draggable" style="height: 100%; width: 100%;">
+                    <div class="panel panell panel-default draggable" style="height: 100%; width: 100%;">
                       <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
@@ -154,7 +154,7 @@
          <div class="col-md-6 post_bg ">
           
          <div class="panel-group">
-                    <div class="panel panel-default draggable">
+                    <div class="panel  panel-default draggable">
                       <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
@@ -162,6 +162,7 @@
                      </div>
        <div class="panel-heading">
                      <div class="app_title" style="color: white;">Poster</div>
+                      <div class="panel-body" style="height: 100%; width: 100%;"></div>
                       </div>
                            </div>
 
@@ -177,7 +178,7 @@
 
                      <div class="panel-group" >
 
-                        <div class="panel panel-default draggable" style="height: 100%; width: 100%;" >
+                        <div class="panel panell panel-default draggable" style="height: 100%; width: 100%;" >
                          <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
@@ -209,7 +210,7 @@
                <div class="app_wrapper droppable">
                 <div ng-controller="newsCtrl">
                   <div class="panel-group" >
-                    <div class="panel panel-default draggable" >
+                    <div class="panel panell panel-default draggable" >
                       <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
@@ -220,8 +221,9 @@
                       </div>
                         <div  class="panel_body" style="padding: 0px; margin: 0px; overflow-y : scroll; max-height: 80%;">
                         <ul ng-repeat="new in news" class="list-group" >
-                          <li class="list-group-item">{{new.Title}} </panel>
+                          <li class="list-group-item"><a href="http://www.bbc.com{{new.Link}}"> {{new.Title}} </panel>
                         </ul>
+
                         </div>
                            </div>  
                           </div>   
@@ -233,7 +235,7 @@
                 <div class="app_wrapper droppable">
                 
                   <div class="panel-group">
-                    <div class="panel panel-default draggable">
+                    <div class="panel panell panel-default draggable">
                       <div class="app_bar">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
@@ -287,7 +289,7 @@
 
 
 $(document).ready(function() {
-          $(".panel").dblclick( function() {
+          $(".panell").dblclick( function() {
               $(this).animate({
              
                     height: '500px',
@@ -300,7 +302,7 @@ $(document).ready(function() {
                     fontSize:'20px'
               });
           }); 
-           $(".panel").click( function() {
+           $(".panell").click( function() {
               $(this).animate({
                   height: "100%", 
                   width: "100%",
