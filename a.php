@@ -1,7 +1,7 @@
 <?php 
    require('php1/dbHandler.php');
 
-    session_start();
+       
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!(empty($_POST["login"]) || empty($_POST["password"]))){
@@ -10,8 +10,10 @@
         //$password = md5($passwd);
     
           if (Database_handler::find_user($login,$password)) {
-          
+         
+           session_start();
           $_SESSION["login"] = $login;
+          $_SESSION["islogged"] = true;
         
             header('Location: /php_proj/php1/mainPanel.php'); 
             

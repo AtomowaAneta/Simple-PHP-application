@@ -4,10 +4,18 @@
  
 			ini_set('session.cookie_httponly', 1);
 			session_start();
-			$date = getdate();
 			 
-			$login = $_SESSION["login"];
-			$nick = Database_handler::display_user("$login");
+	
+      if(isset($_SESSION["islogged"]) && $_SESSION["islogged"]==true){
+              $login = $_SESSION["login"];
+              $nick = Database_handler::display_user("$login");
+              Database_handler::become_logged_in("$login");
+              
+      } else {
+        header('Location: /php_proj/php1/mainPanel.php'); 
+
+      }
+
 			?> 
 
 <html>
@@ -63,7 +71,7 @@
                </ul>
                <ul class="nav navbar-nav navbar-right">
                   <li class="navbutton"><a href="#">Messages <span class="glyphicon glyphicon-envelope"></span></a></li>
-                  <li class="navbutton"><a href="#"><?php echo $nick?> <span class="glyphicon glyphicon-user"></span></a></li>
+                  <li class="navbutton"><a href="#"><?php echo $login?> <span class="glyphicon glyphicon-user"></span></a></li>
                   <li class="navbutton"><a href="logOut.php" data-toggle="tooltip" data-placement="bottom" title="Cya!"> Log Out <span class="glyphicon glyphicon-log-out"></span></a></li>
                </ul>
             </div>

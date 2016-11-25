@@ -13,6 +13,7 @@ Password varchar(255),
 Nick varchar(255),
 Age int(20),
 Mail_addr varchar(255),
+Session ENUM("t","f") DEFAULT 'f',
 PRIMARY KEY (PersonID)
 );
 

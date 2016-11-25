@@ -62,12 +62,13 @@ myApp.controller('newsCtrl', function($scope,$http, $interval) {
   });
   });
 
-myApp.controller('mailerCtrl', function($scope, $http) {
+myApp.controller('mailerCtrl', function($scope, $http, $interval) {
   $scope.mailerTitle = "Mailer";
+   $interval(function () {
   $http.get('dbMailerAgent.php').then(function(response){
       $scope.users = response.data.userNick;
   });
-
+  }, 1000);
   });
 
 

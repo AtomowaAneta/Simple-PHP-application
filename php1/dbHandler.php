@@ -75,6 +75,29 @@ class Database_handler
     }
     }
 
+    public static function become_logged_in($name){
+         $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "UPDATE Users SET Session='t' WHERE FirstName='$name'";
+        $result = $conn->query($sql);
+    }
+
+
+
+    public static function become_logged_out($name){
+         $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "UPDATE Users SET Session='f' WHERE FirstName='$name'";
+        $result = $conn->query($sql);
+    }
+    
+
     public static function get_all_users(){
          $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
         if ($conn->connect_error) {
