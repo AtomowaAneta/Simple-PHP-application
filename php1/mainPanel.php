@@ -260,7 +260,7 @@
 
                         <div class="panel-body"  style="overflow-y : scroll; max-height: 80%;" >
                             <ul class="list-group" ng-repeat="user in users">
-                            <li class="list-item"><well>{{user}}<span class="label label-default">Avaialability</span></well></li>
+                            <li class="list-item"><well>{{user.Nick}}<span class="label label-default">Avaialability</span></well></li>
                             </ul>
                         </div>
                         <div class="panel-footer" style="text-align:center;">

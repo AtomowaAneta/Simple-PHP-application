@@ -8,5 +8,5 @@ foreach($html->find('a[class="title-link"]') as $link){
 	 }
 echo json_encode(array('newsTitles' => $newsArrayTitles));
 	
-   
+;
 ?>

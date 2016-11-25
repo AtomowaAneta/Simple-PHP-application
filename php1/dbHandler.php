@@ -1,5 +1,4 @@
-
- <?php
+<?php
 class Database_handler
 {
     private static $servername = "localhost";
@@ -74,6 +73,25 @@ class Database_handler
           while ($row = $result->fetch_row()) {
 			return $row[0];
     }
+    }
+
+    public static function get_all_users(){
+         $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        $sql = "SELECT Nick FROM Users";
+        $result = $conn->query($sql);
+           
+            if ($result->num_rows > 0) {
+            // output data of each row
+           return $result;
+           
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+
     }
 } 
 

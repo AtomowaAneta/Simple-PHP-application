@@ -62,9 +62,11 @@ myApp.controller('newsCtrl', function($scope,$http, $interval) {
   });
   });
 
-myApp.controller('mailerCtrl', function($scope) {
+myApp.controller('mailerCtrl', function($scope, $http) {
   $scope.mailerTitle = "Mailer";
-  $scope.users = ["AnetaRakieta", "JanŻanBan", "ChujowyClinton 07", "Stesiek Bartybiuk", "Miły zgon"];
+  $http.get('dbMailerAgent.php').then(function(response){
+      $scope.users = response.data.userNick;
+  });
 
   });
 
