@@ -51,14 +51,23 @@ myApp.controller('monthDisplayer' ,function($scope, $window) {
 
 });
 
-myApp.controller('newsCtrl', function($scope,$http) {
+myApp.controller('newsCtrl', function($scope,$http, $interval) {
   $scope.newsTitle = "NEWSer";
-  $http.get("newsParser.php").then(function(response) {
-    alert("chuj");
-    $scope.news = response.data.newsTitles;
+
+    $http.get("newsParser.php").then(function(response) {
+      
+      $scope.news = response.data.newsTitles;
  
  
   });
   });
+
+myApp.controller('mailerCtrl', function($scope) {
+  $scope.mailerTitle = "Mailer";
+  $scope.users = ["AnetaRakieta", "JanŻanBan", "ChujowyClinton 07", "Stesiek Bartybiuk", "Miły zgon"];
+
+  });
+
+
 
 

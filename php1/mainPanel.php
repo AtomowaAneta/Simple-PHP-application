@@ -41,8 +41,10 @@
    </head>
    <style> 
       .main_wrapper {
-      padding-top: 40px;
+      padding-top: 70px;
       }
+
+
 
    </style>
    <body ng-app="myApp">
@@ -67,7 +69,7 @@
             </div>
          </div>
       </nav>
-      <div class="row main_wrapper">
+      <div class="container main_wrapper">
          <div class="col-md-3 left_main">
             <div class="row">
                <div class="app_wrapper droppable"  id="resizable">
@@ -162,7 +164,7 @@
                      </div>
        <div class="panel-heading">
                      <div class="app_title" style="color: white;">Poster</div>
-                      <div class="panel-body" style="height: 100%; width: 100%;"></div>
+                      
                       </div>
                            </div>
 
@@ -211,20 +213,29 @@
                 <div ng-controller="newsCtrl">
                   <div class="panel-group" >
                     <div class="panel panell panel-default draggable" >
-                      <div class="app_bar">
+                      <div class="app_bar ">
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-minus-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-remove-sign"></span></a>
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-plus-sign"></span></a>
                      </div>
                       <div class="panel-heading" >
-                     <div class="app_title" style="color: white;" >{{newsTitle}}</div>
+                          
+                     <div  class="app_title" style="color: white;" >{{newsTitle}}</div>
                       </div>
-                        <div  class="panel_body" style="padding: 0px; margin: 0px; overflow-y : scroll; max-height: 80%;">
-                        <ul ng-repeat="new in news" class="list-group" >
-                          <li class="list-group-item"><a href="http://www.bbc.com{{new.Link}}"> {{new.Title}} </panel>
+                        <div  class="panel_body" style="padding: 0px; margin: 0px; overflow-y : scroll; max-height: 80%;" >
+                        <ul ng-repeat="new in news" class="list-group">
+                          <li  class="list-group-item">
+                            <a  href="http://www.bbc.com{{new.Link}}" target="_blank"> {{new.Title}} 
+                                 
+                            </a>
+                     
+
+                          </li>
                         </ul>
+                  
 
                         </div>
+                    
                            </div>  
                           </div>   
                   </div>
@@ -233,7 +244,7 @@
             </br>
              <div class="row">
                 <div class="app_wrapper droppable">
-                
+                <div ng-controller="mailerCtrl">
                   <div class="panel-group">
                     <div class="panel panell panel-default draggable">
                       <div class="app_bar">
@@ -242,7 +253,21 @@
                         <a href="#" style="color: black"><span class="glyphicon glyphicon-plus-sign"></span></a>
 
                      </div>
-      
+                     <div class="panel-heading" >
+                          
+                     <div  class="app_title" style="color: white;" >{{mailerTitle}}</div>
+                      </div>
+
+                        <div class="panel-body"  style="overflow-y : scroll; max-height: 80%;" >
+                            <ul class="list-group" ng-repeat="user in users">
+                            <li class="list-item"><well>{{user}}<span class="label label-default">Avaialability</span></well></li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer" style="text-align:center;">
+                        <div class="btn-group" >  
+                        <button class="btn btn-success" >Call <span class="glyphicon glyphicon-phone-alt"></span></button> <button class="btn btn-success"> Message</button>    
+                         </div> 
+                        </div>
                            </div>        
                   </div>
                </div>
@@ -287,7 +312,6 @@
        <script>
 		
 
-
 $(document).ready(function() {
           $(".panell").dblclick( function() {
               $(this).animate({
@@ -312,10 +336,10 @@ $(document).ready(function() {
               });
           }); 
        });
-  
-			
-     
-      
+ 
+
+
+ 
     
 
 </script>

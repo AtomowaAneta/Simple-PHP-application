@@ -89,7 +89,7 @@ footer {
 .post_bg {
 	margin: 0 auto;
 	background-color: #7e7e7e;
-	height: 95%;
+	height: 100%;
 	border-radius: 10px;
 }
 
@@ -127,3 +127,10 @@ input {
 	width: 100%;
 	height: 50%;
 }	
+
+.previewer {
+	width: 100%;
+	display: none;
+	z-index: 9999;
+}
+
