@@ -5,9 +5,10 @@
 			ini_set('session.cookie_httponly', 1);
 			session_start();
 			 
-	
+	    
       if(isset($_SESSION["islogged"]) && $_SESSION["islogged"]==true){
               $login = $_SESSION["login"];
+              $flag = 't';
               $nick = Database_handler::display_user("$login");
               Database_handler::become_logged_in("$login");
               
@@ -267,12 +268,15 @@
                       </div>
 
                         <div class="panel-body"  style="overflow-y : scroll; max-height: 80%;" >
-                            <ul class="list-group" ng-repeat="user in users">
-                            <li class="list-item"><well>{{user.Nick}}<span class="label label-default">Avaialability</span></well></li>
-                            </ul>
+                            <div class="container-fluid" ng-repeat="user in users">
+                            <div class="row"> 
+                            <div class="col-md-8">{{user.Nick}}</div>
+                            <div class="col-md-4"><span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            </div>
                         </div>
                         <div class="panel-footer" style="text-align:center;">
-                        <div class="btn-group" >  
+                        <div class="btn-group">  
                         <button class="btn btn-success" >Call <span class="glyphicon glyphicon-phone-alt"></span></button> <button class="btn btn-success"> Message</button>    
                          </div> 
                         </div>
