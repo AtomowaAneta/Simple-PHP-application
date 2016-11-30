@@ -13,3 +13,13 @@ input {
 	border-radius: 100px;
 }
 
+.wrong_input {
+	font-family: 'Fjalla One', sans-serif;
+	color: red;
+
+}
+
+.ok_input {
+	color: green;
+}
+

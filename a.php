@@ -4,7 +4,7 @@
        
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (!(empty($_POST["login"]) || empty($_POST["password"]))){
+    if (!(empty($_POST["login"]) && empty($_POST["password"]))){
         $login = test_input($_POST["login"]);
         $password = test_input($_POST["password"]);
         //$password = md5($passwd);
@@ -34,6 +34,7 @@
                  $data = trim($data);
                  $data = stripslashes($data);
                  $data = htmlspecialchars($data);
+                 
                  return $data;
               }
    

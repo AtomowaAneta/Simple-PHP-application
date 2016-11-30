@@ -8,8 +8,6 @@
 	    
       if(isset($_SESSION["islogged"]) && $_SESSION["islogged"]==true){
               $login = $_SESSION["login"];
-              $flag = 't';
-              $nick = Database_handler::display_user("$login");
               Database_handler::become_logged_in("$login");
               
       } else {
@@ -298,7 +296,7 @@
                   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" >Begin
                   <span class="caret"></span> </button>
                   <ul class="dropdown-menu">
-                     <li style="text-align:center;"><a href="#"><?php echo $nick?> <span class="glyphicon glyphicon-user"></span></a></li>
+                     <li style="text-align:center;"><a href="#"><?php echo $login?> <span class="glyphicon glyphicon-user"></span></a></li>
                      <li class="divider"></li>
                      <li class="dropdown-toggle">
                         <a href="#">Applications   <span class="glyphicon glyphicon-arrow-right"></span></a>
