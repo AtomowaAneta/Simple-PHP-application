@@ -53,25 +53,7 @@ class Database_handler
         $stmt->close();
         $conn->close();
     }
-    public static function display_user($name) 
-     {
-        $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
-        if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        }
-        $stmt = $conn->prepare("SELECT Nick FROM Users WHERE FirstName=?");
-        $stmt->bind_param("s", $name);
-
-        $stmt->execute();
-        echo $stmt->fetch();
-        
-       
-        
-
-
-
-    }
+   
     public static function become_logged_in($name){
       $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
          if (mysqli_connect_errno()) {
