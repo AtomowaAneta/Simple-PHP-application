@@ -99,6 +99,7 @@ class Database_handler
         }
         $conn->close();
     }
+
     public static function get_all_users(){
          $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
         if ($conn->connect_error) {
@@ -115,4 +116,20 @@ class Database_handler
         }
         $conn->close();
     }
+
+    public static function get_hash($name)   {
+        $conn = new mysqli(Database_handler::$servername, Database_handler::$username, Database_handler::$password, Database_handler::$db_name);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+            $stmt = $conn->prepare("SELECT Password FROM Users WHERE FirstName=?");
+            $stmt->bind_param("s",$name);
+            $stmt->execute();
+            $stmt->bind_result($result);
+            $stmt->fetch();
+            return $result;
+            $stmt->close();
+            $conn->close();
+}
 } 
+

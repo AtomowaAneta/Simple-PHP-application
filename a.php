@@ -1,45 +1,40 @@
-<?php 
-   require('php1/dbHandler.php');
+<?php
+require ('php1/dbHandler.php');
 
-       
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    if (!(empty($_POST["login"]) && empty($_POST["password"]))){
-        $login = test_input($_POST["login"]);
-        $password = test_input($_POST["password"]);
-        //$password = md5($passwd);
-    
-          if (Database_handler::find_user($login,$password)) {
-         
-           session_start();
-          $_SESSION["login"] = $login;
-          $_SESSION["islogged"] = true;
-        
-            header('Location: /php_proj/php1/mainPanel.php'); 
-            
-            }
-            else {
-              $error_name = "User does not exist";
-              }
-          
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+  if (!(empty($_POST["login"]) && empty($_POST["password"])))
+  {
+    $login = test_input($_POST["login"]);
+    $password = test_input($_POST["password"]);
+    if (password_verify($password, Database_handler::get_hash($login)))
+    {
+      session_start();
+      $_SESSION["login"] = $login;
+      $_SESSION["islogged"] = true;
+      header('Location: /php_proj/php1/mainPanel.php');
     }
-     else {
-            $error_name = "You must fulfill all fields!";
-          }
-        }
+    else
+    {
+      $error_name = "User does not exist";
+    }
+  }
+  else
+  {
+    $error_name = "You must fulfill all fields!";
+  }
+}
 
-   
-    
-     function test_input($data) {
-                 $data = trim($data);
-                 $data = stripslashes($data);
-                 $data = htmlspecialchars($data);
-                 
-                 return $data;
-              }
-   
-   
-   ?>
+function test_input($data)
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+?>
+
 
 <!DOCTYPE html>
 <head>
@@ -141,7 +136,7 @@
     <div class="row" >
       <div class="col-md-12">
          <div class="row" >
-              <p id="error_msg" style="text-align: center;"><?php echo ((isset($error_name) && $error_name != '') ? $error_name : ''); ?></p>
+              <p id="error_msg" style="text-align: center;"><?php echo ((isset($error_name) && $error_name != '') ? $error_name : '');  ?></p>
          </div>
       </div>
    </div>

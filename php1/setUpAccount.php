@@ -16,9 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       if (test_age($age))
       {
         if (test_pwd($pwd))
+
         {
           if (test_mail($mail_addr))
           {
+            $pwd = password_hash($pwd,PASSWORD_BCRYPT);
             $newUser = new Database_handler($first_name, $surname, $pwd, $nick, $age, $mail_addr);
             $newUser->create_user();
             if ($newUser != NULL)
@@ -55,10 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $error_name = "You must fulfill all fields!";
   }
 }
-else
-{
-  $error_name = "Server problem. Try again later";
-}
+
 
 function test_pwd($data)
 {
@@ -164,7 +163,7 @@ function test_input($data)
                </div>
                <div class="col-md-10" >
                   <input name="first_name" ng-model="first_name" required names-validation placeholder="first name" style="text-align: center">
-                  <span class="ok_input" ng-show="create_user_form.firstName.$valid">OK!</span> 
+                  <span class="ok_input" ng-show="create_user_form.first_name.$valid">OK!</span> 
                   <span class="wrong_input" ng-show="create_user_form.first_name.$invalid && create_user_form.first_name.$touched ">USERNAME : 5-30 CHARS</span> 
                </div>
             </div>
@@ -199,7 +198,7 @@ function test_input($data)
                <div class="col-md-2">Age 
                </div>
                <div class="col-md-10">
-                  <input type="number" min="10" max="99" id="age" name="age" ng-model="age" required age-validation placeholder="age" style="text-align: center"> 
+                  <input type="number" min="10" max="99" id="age" name="age" ng-model="age" required age-validation placeholder="age"  style="text-align: center;"> 
                   <span class="ok_input" ng-show="create_user_form.age.$valid">OK!</span> 
                   <span class="wrong_input" ng-show="create_user_form.age.$invalid && create_user_form.age.$touched ">AGE: 10 - 100</span> 
                </div>
@@ -207,8 +206,8 @@ function test_input($data)
             <div class="row">
                <div class="col-md-2">Mail Address</div>
                <div class="col-md-10">
-                  <input type="email" id="mail_addr" name="mail_addr" ng-model="mail_addr" placeholder="email"  required>
-                  <span class="wrong_input" ng-show="create_user_form.mail_addr.$touched && create_user_form.mail_addr.$invalid"> IS NOT MAIL!</span>
+                  <input type="email" id="mail_addr" name="mail_addr" ng-model="mail_addr" placeholder="email"  required style="text-align: center">
+                  <span class="wrong_input" ng-show="create_user_form.mail_addr.$touched && create_user_form.mail_addr.$invalid"> IS NOT MAIL! example@mail.op</span>
                   <span class="ok_input" ng-show="create_user_form.mail_addr.$touched && create_user_form.mail_addr.$valid"> OK!</span>
                </div>
             </div>
